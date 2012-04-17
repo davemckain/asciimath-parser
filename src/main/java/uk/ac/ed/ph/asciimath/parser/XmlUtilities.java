@@ -45,6 +45,9 @@ final class XmlUtilities {
     /**
      * Creates a (namespace-aware) DOM {@link DocumentBuilder}, throwing an {@link AsciiMathParserException}
      * if such a thing cannot be created/configured.
+     *
+     * @throws AsciiMathParserException if a namespace-aware DOM {@link DocumentBuilder}
+     *   could not be created.
      */
     public static DocumentBuilder createNSAwareDocumentBuilder() {
         final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -84,7 +87,7 @@ final class XmlUtilities {
                     + transformerFactory.getClass().getName()
                     + " needs to support feature "
                     + feature
-                    + " in order to be used with ASCIIMathParser");
+                    + " in order to be used with AsciiMathParser");
         }
     }
 

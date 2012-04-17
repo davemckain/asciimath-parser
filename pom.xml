@@ -26,7 +26,7 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
   <name>asciimath-parser</name>
   <groupId>uk.ac.ed.ph.asciimath</groupId>
   <artifactId>asciimath-parser</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
   <properties>
     <rhino.version>1.7R2</rhino.version>
@@ -86,7 +86,7 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
     <developer>
       <id>davemckain</id>
       <name>David McKain</name>
-      <email>david.mckain&#xa0;[at]&#xa0;ed.ac.uk</email>
+      <email>david.mckain [at] ed.ac.uk</email>
       <url>http://www.ph.ed.ac.uk/people/david-mckain</url>
       <organization>School of Physics and Astronomy, University of Edinburgh</organization>
       <organizationUrl>http://www.ph.ed.ac.uk</organizationUrl>

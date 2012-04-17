@@ -158,6 +158,17 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
         <artifactId>maven-release-plugin</artifactId>
         <version>2.2.2</version>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/assemble/bin.xml</descriptor>
+            <descriptor>src/assemble/src.xml</descriptor>
+          </descriptors>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>

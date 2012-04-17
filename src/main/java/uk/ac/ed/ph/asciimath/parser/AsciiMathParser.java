@@ -22,8 +22,6 @@ package uk.ac.ed.ph.asciimath.parser;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
@@ -91,7 +89,7 @@ public final class AsciiMathParser {
      * Parses the given ASCIIMath input, returning a DOM {@link Document} Object containing the
      * resulting MathML <tt>math</tt> element.
      *
-     * @see #parseAsciiMath(String, Map)
+     * @see #parseAsciiMath(String, AsciiMathParserOptions)
      *
      * @param asciiMathInput ASCIIMath input, which must not be null
      * @return resulting MathML {@link Document} object
@@ -104,21 +102,20 @@ public final class AsciiMathParser {
     }
 
     /**
-     * Parses the given ASCIIMath input using the given options,
-     * returning a DOM {@link Document} Object containing the
-     * resulting MathML <tt>math</tt> element.
+     * Parses the given ASCIIMath input, returning a DOM {@link Document} Object containing the
+     * resulting MathML <tt>math</tt> element, using the given {@link AsciiMathParserOptions} to
+     * tweak the results.
      *
-     * @see #parseAsciiMath(String, Map)
+     * @see #parseAsciiMath(String)
      *
      * @param asciiMathInput ASCIIMath input, which must not be null
-     * @param options simple Map of options to use. The keys are defined as Strings in this class.
-     *   Unknown keys are ignored.
+     * @param options optional {@link AsciiMathParserOptions}
      * @return resulting MathML {@link Document} object
      *
      * @throws IllegalArgumentException if asciiMathInput is null
      * @throws AsciiMathParserException if an unexpected Exception happened
      */
-    public Document parseAsciiMath(final String asciiMathInput, final Map<String,Object> options) {
+    public Document parseAsciiMath(final String asciiMathInput, final AsciiMathParserOptions options) {
         if (asciiMathInput==null) {
             throw new IllegalArgumentException("AsciiMathInput must not be null");
         }
@@ -133,8 +130,11 @@ public final class AsciiMathParser {
             final Scriptable parser = context.newObject(newScope, "AsciiMathParser", new Object[] { document });
             final Scriptable optionsJS = context.newObject(newScope);
             if (options!=null) {
-                for (final Entry<String,Object> option : options.entrySet()) {
-                    ScriptableObject.putProperty(optionsJS, option.getKey(), option.getValue());
+                if (options.isDisplayMode()) {
+                    ScriptableObject.putProperty(optionsJS, OPTION_DISPLAY_MODE, Boolean.TRUE);
+                }
+                if (options.isAddSourceAnnotation()) {
+                    ScriptableObject.putProperty(optionsJS, OPTION_ADD_SOURCE_ANNOTATION, Boolean.TRUE);
                 }
             }
             final Object result = ScriptableObject.callMethod(parser, "parseASCIIMathInput", new Object[] { asciiMathInput, optionsJS });

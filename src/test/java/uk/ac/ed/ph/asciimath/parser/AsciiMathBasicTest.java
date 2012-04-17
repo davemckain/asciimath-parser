@@ -22,9 +22,6 @@ package uk.ac.ed.ph.asciimath.parser;
 import static uk.ac.ed.ph.asciimath.parser.AsciiMathTestUtilities.assertXMLEqual;
 import static uk.ac.ed.ph.asciimath.parser.AsciiMathTestUtilities.wrapInMathElement;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -55,8 +52,8 @@ public class AsciiMathBasicTest {
 
     @Test
     public void testSuccessDisplayMode() throws Throwable {
-        final Map<String, Object> options = new HashMap<String, Object>();
-        options.put(AsciiMathParser.OPTION_DISPLAY_MODE, Boolean.TRUE);
+        final AsciiMathParserOptions options = new AsciiMathParserOptions();
+        options.setDisplayMode(true);
 
         final Document output = parser.parseAsciiMath("1", options);
         assertXMLEqual(wrapInMathElement("<mn>1</mn>", true), output);
@@ -64,17 +61,17 @@ public class AsciiMathBasicTest {
 
     @Test
     public void testSuccessSourceAnnotation() throws Throwable {
-        final Map<String, Object> options = new HashMap<String, Object>();
-        options.put(AsciiMathParser.OPTION_ADD_SOURCE_ANNOTATION, Boolean.TRUE);
+        final AsciiMathParserOptions options = new AsciiMathParserOptions();
+        options.setAddSourceAnnotation(true);
 
         final Document output = parser.parseAsciiMath("1", options);
         assertXMLEqual(wrapInMathElement("<semantics><mn>1</mn><annotation encoding='ASCIIMathInput'>1</annotation></semantics>"),
                 output);
     }
 
-    /* (Note what ASCIIMath generates here!) */
     @Test
     public void testEmptyInput() throws Throwable {
+        /* (Note what ASCIIMath generates here!) */
         assertXMLEqual(wrapInMathElement("<mo/>"), parser.parseAsciiMath(""));
     }
 }

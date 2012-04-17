@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!--
+
+$Id: pom.xml 1231 2012-04-17 13:16:41Z dmckain $
+
+Copyright (c) 2011-2012, The University of Edinburgh
+All Rights Reserved
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <name>ASCIIMathParser</name>
+  <groupId>uk.ac.ed.ph.asciimath</groupId>
+  <artifactId>asciimath-parser</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <properties>
+    <rhino.version>1.7R2</rhino.version>
+    <junit.version>4.10</junit.version>
+    <xmlunit.version>1.3</xmlunit.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>rhino</groupId>
+      <artifactId>js</artifactId>
+      <version>${rhino.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>xmlunit</groupId>
+      <artifactId>xmlunit</artifactId>
+      <version>${xmlunit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <repositories>
+    <repository>
+      <id>www2.ph.ed.ac.uk</id>
+      <url>http://www2.ph.ed.ac.uk/maven2</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
+  <description>
+    Trimmed version of Peter Jipsen's ASCIIMathML.js JavaScript that
+    contains only the raw ASCIIMath parsing code. This also includes
+    a trivial Rhino wrapper that packages the parser as a simple
+    Java library.
+  </description>
+  <inceptionYear>2011</inceptionYear>
+  <organization>
+    <name>The University of Edinburgh</name>
+    <url>http://www.ed.ac.uk</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>BSD License (3 clause)</name>
+      <url>LICENSE.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>davemckain</id>
+      <name>David McKain</name>
+      <email>david.mckain&#xa0;[at]&#xa0;ed.ac.uk</email>
+      <url>http://www.ph.ed.ac.uk/people/david-mckain</url>
+      <organization>School of Physics and Astronomy, University of Edinburgh</organization>
+      <organizationUrl>http://www.ph.ed.ac.uk</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>0</timezone>
+    </developer>
+  </developers>
+  <distributionManagement>
+    <!-- (This is not intended for general use!) -->
+    <repository>
+      <id>www2.ph.ed.ac.uk</id>
+      <url>file:///Disk/apps-team/repositories/maven2</url>
+    </repository>
+    <snapshotRepository>
+      <id>www2.ph.ed.ac.uk</id>
+      <url>file:///Disk/apps-team/repositories/maven2</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.3.1</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>uk.ac.ed.ph.asciimath.parser.AsciiMathParser</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>2.8</version>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+      <plugin>
+         <groupId>org.codehaus.mojo</groupId>
+         <artifactId>findbugs-maven-plugin</artifactId>
+         <version>2.4.0</version>
+       </plugin>
+    </plugins>
+  </build>
+</project>

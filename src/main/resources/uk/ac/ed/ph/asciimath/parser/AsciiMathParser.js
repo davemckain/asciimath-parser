@@ -812,7 +812,7 @@ function AMparseExpr(str,rightbracket) {
 initSymbols();
 
 /* Parses the given ASCIIMathInput, returning a <math> DOM Element */
-this.parseASCIIMathInput = function(asciiMathInput) {
+this.parseAsciiMathInput = function(asciiMathInput) {
   var options = arguments[1] || {};
 
   /* Call up ASCIIMath to do the actual parsing, generating a document fragment */

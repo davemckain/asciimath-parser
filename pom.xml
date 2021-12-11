@@ -55,7 +55,7 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
   <repositories>
     <repository>
       <id>www2.ph.ed.ac.uk</id>
-      <url>http://www2.ph.ed.ac.uk/maven2</url>
+      <url>https://www2.ph.ed.ac.uk/maven2</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
@@ -73,7 +73,7 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
   <inceptionYear>2011</inceptionYear>
   <organization>
     <name>The University of Edinburgh</name>
-    <url>http://www.ed.ac.uk</url>
+    <url>https://www.ed.ac.uk</url>
   </organization>
   <licenses>
     <license>
@@ -87,9 +87,9 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
       <id>davemckain</id>
       <name>David McKain</name>
       <email>david.mckain [at] ed.ac.uk</email>
-      <url>http://www.ph.ed.ac.uk/people/david-mckain</url>
+      <url>https://www.ph.ed.ac.uk/people/david-mckain</url>
       <organization>School of Physics and Astronomy, University of Edinburgh</organization>
-      <organizationUrl>http://www.ph.ed.ac.uk</organizationUrl>
+      <organizationUrl>https://www.ph.ed.ac.uk</organizationUrl>
       <roles>
         <role>architect</role>
         <role>developer</role>

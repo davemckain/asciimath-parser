@@ -164,7 +164,6 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
         <version>3.3.0</version>
         <configuration>
@@ -173,6 +172,19 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
             <descriptor>src/assemble/src.xml</descriptor>
           </descriptors>
         </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

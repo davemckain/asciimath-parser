@@ -33,6 +33,7 @@ import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.xerces.jaxp.DocumentBuilderFactoryImpl;
 import org.w3c.dom.Document;
 
 /**
@@ -43,20 +44,20 @@ import org.w3c.dom.Document;
 final class XmlUtilities {
 
     /**
-     * Creates a (namespace-aware) DOM {@link DocumentBuilder}, throwing an {@link AsciiMathParserException}
+     * Creates a (namespace-aware) Xerces DOM {@link DocumentBuilder}, throwing an {@link AsciiMathParserException}
      * if such a thing cannot be created/configured.
      *
      * @throws AsciiMathParserException if a namespace-aware DOM {@link DocumentBuilder}
-     *   could not be created.
+     *   could not be created, which should not happen.
      */
     public static DocumentBuilder createNSAwareDocumentBuilder() {
-        final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        final DocumentBuilderFactory documentBuilderFactory = new DocumentBuilderFactoryImpl();
         documentBuilderFactory.setNamespaceAware(true);
         try {
             return documentBuilderFactory.newDocumentBuilder();
         }
         catch (final ParserConfigurationException e) {
-            throw new AsciiMathParserException("Could not create Namespace-aware DocumentBuilder", e);
+            throw new AsciiMathParserException("Could not create DocumentBuilder - this should not happen!", e);
         }
     }
 

@@ -30,6 +30,7 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
   <packaging>jar</packaging>
   <properties>
     <rhino.version>1.7.13</rhino.version>
+    <xerces.version>2.12.1</xerces.version>
     <junit.version>4.13.2</junit.version>
     <xmlunit.version>1.6</xmlunit.version>
   </properties>
@@ -38,6 +39,11 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
       <groupId>org.mozilla</groupId>
       <artifactId>rhino</artifactId>
       <version>${rhino.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xercesImpl</artifactId>
+      <version>${xerces.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

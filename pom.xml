@@ -65,6 +65,7 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
     the raw ASCIIMath parsing code. Also includes a trivial Rhino
     wrapper that packages the parser into a simple Java library.
   </description>
+  <url>https://github.com/davemckain/asciimath-parser</url>
   <inceptionYear>2011</inceptionYear>
   <organization>
     <name>The University of Edinburgh</name>
@@ -93,9 +94,9 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
     </developer>
   </developers>
   <scm>
-    <url>scm:git:git@github.com:davemckain/asciimath-parser.git</url>
-    <connection>scm:git:git@github.com:davemckain/asciimath-parser.git</connection>
-    <developerConnection>scm:git:git@github.com:davemckain/asciimath-parser.git</developerConnection>
+    <url>https://github.com/davemckain/asciimath-parser</url>
+    <connection>scm:git:git://github.com:davemckain/asciimath-parser.git</connection>
+    <developerConnection>scm:git:ssh://github.com:davemckain/asciimath-parser.git</developerConnection>
   </scm>
   <distributionManagement>
     <snapshotRepository>

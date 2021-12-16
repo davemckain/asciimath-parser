@@ -25,6 +25,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -77,14 +78,12 @@ public final class AsciiMathTestUtilities {
      * </pre>
      *
      * Returns a List of [input,output] pairs.
-     *
-     * @throws Exception
      */
     public static Collection<String[]> readAndParseSingleLineInputTestResource(final String resourceName) throws Exception {
         String testData = ensureGetResource(resourceName);
         testData = testData.replaceAll("(?m)^#.*$(\\s+)(^|$)", "");
         final String[] testItems = testData.split("(?m)\\s*^={4,}\\s*");
-        final Collection<String[]> result = new ArrayList<String[]>(testItems.length);
+        final Collection<String[]> result = new ArrayList<>(testItems.length);
         for (final String testItem : testItems) {
             result.add(testItem.split("\n+", 2));
         }
@@ -112,10 +111,9 @@ public final class AsciiMathTestUtilities {
      *
      * @param in InputStream supplying character data
      * @return String representing the data read in
-     * @throws IOException
      */
     public static String readUnicodeStream(final InputStream in) throws IOException {
-        return readCharacterStream(new InputStreamReader(in, "UTF-8"));
+        return readCharacterStream(new InputStreamReader(in, StandardCharsets.UTF_8));
     }
 
     /**
@@ -127,7 +125,6 @@ public final class AsciiMathTestUtilities {
      *
      * @param reader source of string data
      * @return String representing the data read
-     * @throws IOException
      */
     public static String readCharacterStream(final Reader reader) throws IOException {
         final BufferedReader bufferedReader = new BufferedReader(reader);

@@ -34,7 +34,7 @@ import org.xml.sax.InputSource;
 
 /**
  * Parameterised test that reads test data from {@link #TEST_RESOURCE_NAME}. Add extra test
- * cases here as and when required, following the (hopefully straightforwarded) conventions
+ * cases here as and when required, following the (hopefully straightforward) conventions
  * listed therein.
  *
  * @author David McKain

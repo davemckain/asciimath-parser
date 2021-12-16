@@ -47,7 +47,7 @@ public final class AsciiMathParserOptions implements Serializable {
      * Sets whether the resulting MathML will be marked up to be shown in "display mode", i.e.
      * whether it will have a 'display="block"' attribute.
      *
-     * @param displayMode true if the resulting MathML shuld be in display mode, false otherwise.
+     * @param displayMode true if the resulting MathML should be in display mode, false otherwise.
      */
     public void setDisplayMode(final boolean displayMode) {
         this.displayMode = displayMode;

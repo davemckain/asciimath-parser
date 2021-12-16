@@ -67,7 +67,7 @@ final class XmlUtilities {
      * features.
      */
     public static TransformerFactory createJaxpTransformerFactory() {
-        TransformerFactory transformerFactory = null;
+        TransformerFactory transformerFactory;
         try {
             transformerFactory = TransformerFactory.newInstance();
         }
@@ -119,8 +119,8 @@ final class XmlUtilities {
     public static String serializeMathmlDocument(final Document mathml) {
         final StringWriter stringWriter = new StringWriter();
         try {
-            final Transformer transformer = XmlUtilities.createJaxpTransformerFactory().newTransformer();
-            XmlUtilities.setIndentation(transformer, 2);
+            final Transformer transformer = createJaxpTransformerFactory().newTransformer();
+            setIndentation(transformer, 2);
             transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
             transformer.transform(new DOMSource(mathml), new StreamResult(stringWriter));
         }

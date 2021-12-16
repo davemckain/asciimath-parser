@@ -19,9 +19,11 @@
  */
 package uk.ac.ed.ph.asciimath.parser;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
@@ -58,30 +60,21 @@ public final class AsciiMathParser {
     }
 
     public AsciiMathParser(final String classPathLocation) {
-        final InputStream parserJavaScriptStream = getClass().getClassLoader().getResourceAsStream(classPathLocation);
-        if (parserJavaScriptStream==null) {
-            throw new AsciiMathParserException("AsciiMathParser.js was not found in the ClassPath at " + classPathLocation);
-        }
-        try {
+        try (final InputStream parserJavaScriptStream = getClass().getClassLoader().getResourceAsStream(classPathLocation)) {
+            if (parserJavaScriptStream==null) {
+                throw new AsciiMathParserException("AsciiMathParser.js was not found in the ClassPath at " + classPathLocation);
+            }
             /* Read in JavaScript from the ClassPath */
-            final Reader parserJSFileReader = new InputStreamReader(parserJavaScriptStream, "UTF-8");
+            final Reader parserJSFileReader = new InputStreamReader(parserJavaScriptStream, StandardCharsets.UTF_8);
 
             /* Evaluate the parser script and store away the results */
             final Context context = Context.enter();
             this.sharedScope = context.initStandardObjects();
-            context.evaluateReader(sharedScope, parserJSFileReader, "AsciiMathParser.js", 1, null);
+            context.evaluateReader(sharedScope, parserJSFileReader, ASCIIMATH_PARSER_JS_NAME, 1, null);
             Context.exit();
         }
-        catch (final Exception e) {
+        catch (final IOException e) {
             throw new AsciiMathParserException("Error parsing AsciiMathParser.js", e);
-        }
-        finally {
-            try {
-                parserJavaScriptStream.close();
-            }
-            catch (final Exception e) {
-                throw new AsciiMathParserException("Error closing AsciiMathParser.js stream", e);
-            }
         }
     }
 
@@ -158,8 +151,8 @@ public final class AsciiMathParser {
      */
     public static void main(final String[] args) {
         final StringBuilder inputBuilder = new StringBuilder();
-        for (int i=0; i<args.length; i++) {
-            inputBuilder.append(args[i]).append(" ");
+        for (String arg : args) {
+            inputBuilder.append(arg).append(" ");
         }
         final String asciiMathInput = inputBuilder.toString();
 

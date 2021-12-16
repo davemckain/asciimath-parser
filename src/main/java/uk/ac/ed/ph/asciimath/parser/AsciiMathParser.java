@@ -40,7 +40,7 @@ import org.w3c.dom.Element;
  */
 public final class AsciiMathParser {
 
-    /** Option to add <tt>display="block"</tt> to the resulting <tt>math</tt> element */
+    /** Option to add <code>display="block"</code> to the resulting <code>math</code> element */
     public static final String OPTION_DISPLAY_MODE = "displayMode";
 
     /** Option to add an annotation to the resulting MathML showing the ASCIIMath input */
@@ -80,7 +80,7 @@ public final class AsciiMathParser {
 
     /**
      * Parses the given ASCIIMath input, returning a DOM {@link Document} Object containing the
-     * resulting MathML <tt>math</tt> element.
+     * resulting MathML <code>math</code> element.
      *
      * @see #parseAsciiMath(String, AsciiMathParserOptions)
      *
@@ -96,7 +96,7 @@ public final class AsciiMathParser {
 
     /**
      * Parses the given ASCIIMath input, returning a DOM {@link Document} Object containing the
-     * resulting MathML <tt>math</tt> element, using the given {@link AsciiMathParserOptions} to
+     * resulting MathML <code>math</code> element, using the given {@link AsciiMathParserOptions} to
      * tweak the results.
      *
      * @see #parseAsciiMath(String)

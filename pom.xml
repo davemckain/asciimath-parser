@@ -123,9 +123,8 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
         <version>3.1.0</version><!-- NB: This is the latest version supported by Maven on SL7 -->
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>2.22.1</version><!-- NB: This is the latest version supported by Maven on SL7 -->
         <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.1</version><!-- NB: This is the latest version supported by Maven on SL7 -->
       </plugin>
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>

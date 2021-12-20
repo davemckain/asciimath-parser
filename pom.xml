@@ -185,6 +185,10 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.0.0-M1</version>
+      </plugin>
     </plugins>
   </build>
 </project>

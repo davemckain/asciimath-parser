@@ -73,7 +73,7 @@ along with AsciiMathParser. If not, see <http://www.gnu.org/licenses/lgpl.html>.
   </organization>
   <licenses>
     <license>
-      <name>GNU Lesser General Public License v2.1 or later</name>
+      <name>LGPL-2.1-or-later</name><!-- See: https://spdx.org/licenses/ -->
       <url>LICENSE.txt</url>
       <distribution>repo</distribution>
     </license>

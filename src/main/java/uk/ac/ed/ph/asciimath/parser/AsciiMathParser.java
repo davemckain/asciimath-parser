@@ -130,7 +130,7 @@ public final class AsciiMathParser {
                     ScriptableObject.putProperty(optionsJS, OPTION_ADD_SOURCE_ANNOTATION, Boolean.TRUE);
                 }
             }
-            final Object result = ScriptableObject.callMethod(parser, "parseAsciiMathInput", new Object[] { asciiMathInput, optionsJS });
+            final Object result = ScriptableObject.callMethod(context, parser, "parseAsciiMathInput", new Object[] { asciiMathInput, optionsJS });
             final Element mathElement = (Element) Context.jsToJava(result, Element.class);
             document.appendChild(mathElement);
             return document;

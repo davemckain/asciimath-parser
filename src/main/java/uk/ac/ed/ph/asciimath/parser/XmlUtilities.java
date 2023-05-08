@@ -41,7 +41,7 @@ import org.w3c.dom.Document;
  *
  * @author David McKain
  */
-final class XmlUtilities {
+public final class XmlUtilities {
 
     /**
      * Creates a (namespace-aware) Xerces DOM {@link DocumentBuilder}, throwing an {@link AsciiMathParserException}
